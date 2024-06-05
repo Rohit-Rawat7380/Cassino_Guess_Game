@@ -1,0 +1,40 @@
+#include <iostream>
+#include<ctime>
+#include<cstdlib>
+using namespace std;
+
+//Compiler version g++ 6.3.0
+// Every time the guessing number is change, not fixed
+int main()
+{   int amount, n,a;
+       string  name ;
+    cout<<"Rules :"<<endl<<" 1. Rs.5 deducted if wrong guess" ;
+    cout<<endl<<"2.Guess number b/t 1-6 within certain no. of attempts"  ;
+     cout<<endl<<"Type your first name: " ;
+     getline(cin,name) ;
+    cout<<endl<<endl<<"Enter amount to deposit Mr."<<name<<" Rs. " ;
+    cin>>amount ;
+    srand(time(0))  ;
+    while(amount>4)
+  {  clrscr() ;
+    a = rand()%6+1 ;//  Number between 1 to 6
+    cout<<endl<<"Guess a number : "  ;
+     cin>>n ;
+    try{
+      if(n==a)
+      { cout<<endl<<"Right" ;
+        cout<<endl<<"You won"  ;
+        break ;
+        }
+      else
+      throw(a) ;
+    }
+    catch(int b)
+    {
+      cout<<endl<<"wrong" ;
+      amount = amount-5 ;
+      cout<<endl<<"Amount left : Rs. "<<amount ;
+    }
+  }
+  return 0 ;
+}
